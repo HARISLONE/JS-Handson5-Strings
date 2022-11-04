@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1 id="name">Javascript Handson 5(Strings)</h1> 
+    <br> <br> <br>
+    <div class="ques1">
+        <p>
+            <b>
+                Q.1): You are given a string S, and your task is to return an array B (    2having a size of , where )[B]0B contains the count of character A (uppercase) in string S and 1[contains the count of character D (uppercase) in string S.
+                ]
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                const countCharacters = (S) => {
+
+                    var B = [2];
+                    let countA = 0;
+                    let countD = 0;
+                    let i;
+                    for (i = 0; i < S.length; i++) {
+                      if (S[i] === "A") {
+                        countA += 1;
+                      } else if (S[i] === "D") {
+                        countD += 1;
+                      }
+                    }
+                    B[0] = countA;
+                    B[1] = countD;
+                    return B;
+          };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques2">
+        <p>
+            <b>
+                Q.2): Tina is given a string  S which contains the first letter of all the student names in her class. She got a curiosity to check how many people have their names starting from the same alphabet. So given a string  S , she decided to write a code that finds out the count of characters that occur more than once in the string.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Count_Occ = (s) => {
+            
+                    let Arr = s.split("").sort();
+                  var p;
+                  let map1 = new Map();
+                  for(let i =0; i <  Arr.length ;i++)
+                  {
+                    p=0;
+                   Arr.reduce((acc,val)=>
+                    {
+                      if(val == Arr[i])
+                      {
+                        p=acc+1;
+                      }
+                      return p;
+                    }, 0);
+                    map1.set(`${Arr[i]}` , p);
+                  }
+                  let z = [];
+                  map1.forEach((value,key)=>
+                  {
+                  if(value>1)
+                  {
+                    z.push(key + "" + value);
+                  }
+                  });
+                      return (z.join(""));
+                
+      };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques3">
+        <p>
+            <b>
+                Q.3): You are given a string S containing both uppercase and lowercase letters. You need to find out the number of vowels in the given string.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Count_Vowels= (S) => {
+                    const count = S.match(/[aeiou]/gi).length;
+              
+                  return count;
+      };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques4">
+        <p>
+            <b>
+                Q.4): You are given two strings S1 and S2 (containing both uppercase and lowercase letters), You need to retrun a string which is the concatenation of both the given strings.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Concatenate_Strings = (S1, S2) => {
+                    return (S1 + S2);
+      };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques5">
+        <p>
+            <b>
+                Q.5): You are given a string S, and your task is to return the length of the string S.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                const findLength = (S) => {
+                    return (S.length);
+                  };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques6">
+        <p>
+            <b>
+                Q.6): You are given a string S consisting of two letters A and D,where each character represent the winner of N games played between Aditya and Danish, where letter A represents the win of Aditya and letter D represents the win of Danish. You need to find out the that which player wins the maximum number of games or there is a draw between them.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Game_Winner = (S) => {
+            
+                    let count = 0;
+                    let add = 0;
+                    for(let i = 0; i < S.length; i++)
+                    {
+                      if(S[i] == "A")
+                      {
+                        count++;
+                      }
+                      else{
+                        add++;
+                      }
+                    }
+                    if(count == add)
+                    {
+                      return "Draw";
+                    }
+                    else if(count > add){
+                      return "Aditya";
+                    }
+                   else{
+                      return "Danish";
+                    }
+                  };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques7">
+        <p>
+            <b>
+                Q.7): You are given two strings S and P, and your task is to concatenate them and return the concatenated string.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                const joinStrings = (S, P) => {
+                    return (S.concat(P));
+                  };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques8">
+        <p>
+            <b>
+                Q.8): You are given a string S, Your task is to check wether the given string is a Palindrome or not.A Palindrome is a string, which turnout same when read in reverse direction.
+                Example: "naman" is a Palindrome.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Palin_Check = (str) =>
+                {
+                	const len = str.length;
+
+                            for (let i = 0; i < len / 2; i++) {
+                            
+                                if (str[i] !== str[len - 1 - i]) {
+                                    return 'False';
+                                }
+                            }
+                            return 'True'; 
+                };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques9">
+        <p>
+            <b>
+                Q.9): You are given a string S, Your task is to Reverse the string.String can contain both upppercase lowercase letters. 
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Reverse_String = (str) => {
+                    return (str.split("").reverse().join(""));
+                  };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques10">
+        <p>
+            <b>
+                Q.10): You are given two strings S1 and S2, Your task is to print YES if both strings are same else print NO.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var String_Match = (S1,S2) => 
+                {
+                  if (S1 == S2){
+                            return ("YES");
+                            }
+                            else{
+                                return ("NO");
+                    }     
+                };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques11">
+        <p>
+            <b>
+                Q.11): You are given a string S, along with a pattern string and a text string. You need to repalce the pattern string in S to the text string. 
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Replace = (S, pattern , text) => 
+                {
+                    return (S.replace(pattern, text));   
+                };
+ 
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques12">
+        <p>
+            <b>
+                Q.12): You are given a string S, Your task is to split the string with respect to spaces.
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Split_the_string = (S) => 
+                {
+                  return (S.split(" "));       
+                };
+                </code>
+            </b> 
+        </pre>
+    </div>
+    <br>
+    <div class="ques13">
+        <p>
+            <b>
+                Q.13): You are given a string S containing both uppercase and lowercase letters. You need to find out the number of vowels and the number of consonants in the given string. 
+            </b>
+        </p>
+        <b>Ans:</b>
+        <pre>
+            <b><code> 
+                var Count_Vowels= (S) => {
+            
+                    const vowel = S.match(/[aeiou]/gi).length;
+                
+                    return vowel;
+                };
+                var Count_Consonants= (S) => {
+                 
+                    const consonant = S.match(/[b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v ,w, x, y, z,]/gi).length;
+                
+                    return consonant;      
+        };
+                </code>
+            </b> 
+        </pre>
+    </div>
+</body>
+</html>
